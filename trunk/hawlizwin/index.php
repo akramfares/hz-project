@@ -1,266 +1,123 @@
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title></title>
-	<link href="css/style1.css" rel="stylesheet" type="text/css">
+<?php include("src/utils.php"); ?>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Bootstrap styles -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<!-- Generic page styles -->
-	<link rel="stylesheet" href="css/style.css">
-	<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-	<link rel="stylesheet" href="css/jquery.fileupload.css">
+<!DOCTYPE html>
 
-	<script src="js/jquery.js"></script>
-	<script>
-            $(document).ready(function() {
- 
-                // au début on récupère les regions
-                $.ajax({
-                    url: 'src/liste.php', // lien vers la page de traitement sur le serveur
-                    data: 'debut', // on envoie $_GET['debut'] pour signaler le début
-                    dataType: 'json', // on veut un retour JSON
-                    success: function(json) {
-                        $.each(json, function(index, value) { // pour chaque noeud JSON
-                            // on ajoute l option dans la liste
-                            $('#regions').append('<option value="'+ index +'">'+ value +'</option>');
-                        });
-                    }
-                });
-                // On récupère la liste des villes
-                $.ajax({
-                            url: 'src/liste.php', // lien vers la page de traitement sur le serveur
-                            data: 'id=1', // on envoie $_GET['id'] l'id de la region
-                            dataType: 'json', // on veut un retour JSON
-                            success: function(json) {
-                                $.each(json, function(index, value) { // on ajoute l option dans la liste
-                                    $('#ville').append('<option value="'+ index +'">'+ value +'</option>');
-                                });
-                            }
-                        });
- 
-                // si la liste des régions change
-                $('#regions').on('change', function() {
-                    var val = $(this).val(); // on récupère l'id de la région
- 
-                    if(val != '') {
-                        $('#ville').empty(); // on vide la liste des villes
- 
-                        $.ajax({
-                            url: 'src/liste.php', // lien vers la page de traitement sur le serveur
-                            data: 'id='+ val, // on envoie $_GET['id'] l'id de la region
-                            dataType: 'json', // on veut un retour JSON
-                            success: function(json) {
-                                $.each(json, function(index, value) { // on ajoute l option dans la liste
-                                    $('#ville').append('<option value="'+ index +'">'+ value +'</option>');
-                                });
-                            }
-                        });
-                    }
-                });
-            });
- 
-       </script>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
 
-</head>
-<body>
-	<fieldset>
-		<!-- The fileinput-button span is used to style the file input field as button -->
-	    <span class="btn btn-success fileinput-button">
-	        <i class="glyphicon glyphicon-plus"></i>
-	        <span>Photo du 7awli</span>
-	        <!-- The file input field used as target for the file upload widget -->
-	        <input id="fileupload" type="file" name="files[]" multiple>
-	    </span>
-	    <br>
-	    <br>
-	    <!-- The global progress bar -->
-	    <div id="progress" class="progress">
-	        <div class="progress-bar progress-bar-success"></div>
-	    </div>
-	    <!-- The container for the uploaded files -->
-	    <div id="files" class="files"></div>
+<html class="no-js" lang="fr">
+    <head>
+    	<meta charset="utf-8">
+        <!-- This makes sure the latest version of IE is used in versions of IE that contain multiple rendering engines. Even if a site visitor is using IE8 or IE9, it's possible that they're not using the latest rendering engine their browser contains. To fix this, use: -->
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 
-	</fieldset>
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
 
-<form action="validform.php"
-    method="post">
-	<input type="hidden" name="photo" id="photo" /> 
-	<fieldset>
-		<label for="prix">Prix</label>
-		<input type="prix" id="prix" name="prix" class="form-text" style="width:10%;display: inline;" required/> DHs
-	</fieldset>
-	
-	<fieldset>
-		<label for="ville">Ville</label>
-		<select id="regions" name="regions">
-        	
-        </select>
-        <select id="ville" name="ville">
-	        
-	    </select>
-	</fieldset>
+        <meta name="title" content="">
+        <meta name="description" content="">
+        <meta name="keywords" content="" />
 
-	<fieldset>
-		<label for="description">Description</label>
-		<textarea id="description" name="description" required></textarea>
-	</fieldset>
-	
-	<fieldset class="form-actions">
-		<input type="submit" value="Envoyer" />
-	</fieldset>
-</form>	
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="js/vendor/jquery.ui.widget.js"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
-<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="js/jquery.fileupload.js"></script>
-<!-- The File Upload processing plugin -->
-<script src="js/jquery.fileupload-process.js"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="js/jquery.fileupload-image.js"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="js/jquery.fileupload-audio.js"></script>
-<!-- The File Upload video preview plugin -->
-<script src="js/jquery.fileupload-video.js"></script>
-<!-- The File Upload validation plugin -->
-<script src="js/jquery.fileupload-validate.js"></script>
-<script>
-/*jslint unparam: true, regexp: true */
-/*global window, $ */
-$(function () {
-    'use strict';
-    var uploads = 0;
-    // Change this to the location of your server-side upload handler:
-    var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : 'server/php/',
-        uploadButton = $('<button/>')
-            .addClass('btn btn-primary')
-            .prop('disabled', true)
-            .text('Processing...')
-            .on('click', function () {
-                var $this = $(this),
-                    data = $this.data();
-                $this
-                    .off('click')
-                    .text('Abort')
-                    .on('click', function () {
-                        $this.remove();
-                        data.abort();
-                    });
-                data.submit().always(function () {
-                    $this.remove();
-                });
-            });
-    $('#fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        autoUpload: false,
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 5000000, // 5 MB
-        limitMultiFileUploads:1,
-        singleFileUploads:true,
-        // Enable image resizing, except for Android and Opera,
-        // which actually support image resizing, but fail to
-        // send Blob objects via XHR requests:
-        disableImageResize: /Android(?!.*Chrome)|Opera/
-            .test(window.navigator.userAgent),
-        previewMaxWidth: 100,
-        previewMaxHeight: 100,
-        previewCrop: true
-    }).on('fileuploadadd', function (e, data) {
-    	if(uploads == 0){
-    		data.context = $('<div/>').appendTo('#files');
-	        $.each(data.files, function (index, file) {
-	            var node = $('<p/>')
-	                    .append($('<span/>').text(file.name));
-	            if (!index) {
-	                node
-	                    .append('<br>')
-	                    .append(uploadButton.clone(true).data(data));
-	            }
-	            node.appendTo(data.context);
-	        });
-	        uploads++;
-    	}
-    	else{
-    		$("#files").html("");
-    		data.context = $('<div/>').appendTo('#files');
-	        $.each(data.files, function (index, file) {
-	            var node = $('<p/>')
-	                    .append($('<span/>').text(file.name));
-	            if (!index) {
-	                node
-	                    .append('<br>')
-	                    .append(uploadButton.clone(true).data(data));
-	            }
-	            node.appendTo(data.context);
-	        });
-    	}
+    	<title>
+            7awli zwin
+        </title>
         
-    }).on('fileuploadprocessalways', function (e, data) {
-        var index = data.index,
-            file = data.files[index],
-            node = $(data.context.children()[index]);
-        if (file.preview) {
-            node
-                .prepend('<br>')
-                .prepend(file.preview);
-        }
-        if (file.error) {
-            node
-                .append('<br>')
-                .append($('<span class="text-danger"/>').text(file.error));
-        }
-        if (index + 1 === data.files.length) {
-            data.context.find('button')
-                .text('Charger')
-                .prop('disabled', !!data.files.error);
-        }
-    }).on('fileuploadprogressall', function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        $('#progress .progress-bar').css(
-            'width',
-            progress + '%'
-        );
-    }).on('fileuploaddone', function (e, data) {
-        $.each(data.result.files, function (index, file) {
-            if (file.url) {
-                var link = $('<a>')
-                    .attr('target', '_blank')
-                    .prop('href', file.url);
-                $(data.context.children()[index])
-                    .wrap(link);
-                $("#photo").val(file.url);
-            } else if (file.error) {
-                var error = $('<span class="text-danger"/>').text(file.error);
-                $(data.context.children()[index])
-                    .append('<br>')
-                    .append(error);
-            }
-        });
-    }).on('fileuploadfail', function (e, data) {
-        $.each(data.files, function (index, file) {
-            var error = $('<span class="text-danger"/>').text('File upload failed.');
-            $(data.context.children()[index])
-                .append('<br>')
-                .append(error);
-        });
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-});
-</script>		
-				
-</body>
+        <link rel="icon" href="" type="image/x-icon">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        
+        <link rel="image_src" href="" />
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/style2.css"/>
+        <link href="css/style1.css" rel="stylesheet" type="text/css">
+        
+        <link rel="canonical" href="">
+
+
+    	<!-- IE Fix for HTML5 Tags -->
+    	<!--[if lt IE 9]>
+    		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    	<![endif]-->
+
+        <!-- Facebook meta tags -->
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="">
+        <meta property="og:url" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:locale" content="fr_FR" />
+
+        <!-- Twitter card - Mus validate after -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:creator" content="">
+        <meta name="twitter:image:src" content="">
+        <meta name="twitter:domain" content="">
+        <meta name="twitter:app:name:iphone" content="">
+        <meta name="twitter:app:name:ipad" content="">
+        <meta name="twitter:app:name:googleplay" content="">
+        <meta name="twitter:app:url:iphone" content="">
+        <meta name="twitter:app:url:ipad" content="">
+        <meta name="twitter:app:url:googleplay" content="">
+        <meta name="twitter:app:id:iphone" content="">
+        <meta name="twitter:app:id:ipad" content="">
+        <meta name="twitter:app:id:googleplay" content="">
+
+        <style type="text/css">*{color:white;}</style>
+    </head>
+    <body>
+        <noscript>
+            <div style="background-color: #FF8700;text-align:center;line-height:2em;color:#FFF;">
+                Javascript est désactivé sur votre navigateur. Notez que cela pourrait réduire votre expérience utilisateur.
+            </div>
+        </noscript>
+        <div id="wrapper">
+            <?php include("header.php"); ?>
+            <div id="main">
+                <div id="content">
+                    <div class="index-block">
+                        <h2>Capturer</h2>
+                        <p>
+                            is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <p>
+                            Lorem Ipsum has been.
+                        </p>
+                    </div>
+                    <div class="index-block">
+                        <h2>Partager</h2>
+                        <p>
+                            is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <p>
+                            Lorem Ipsum has been.
+                        </p>
+                    </div>
+                    <div class="index-block">
+                        <h2>Partager & Gagner</h2>
+                        <p>
+                            is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <p>
+                            Lorem Ipsum has been.
+                        </p>
+                    </div>
+                </div>
+                <div id="mobile">&nbsp;</div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div>
+                <p>
+                    This is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.
+                    <a class="footer-button" href="#">Testing and co</a>
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>
