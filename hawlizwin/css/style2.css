@@ -1,0 +1,105 @@
+/*** FONT ****/
+@import 'fonts.css';
+* {
+	margin: 0;
+	padding: 0;
+    font-family: "museo_sans100";
+}
+.clear {
+	clear: both;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ul,li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+p {
+	font-size: 14pt;
+}
+body {
+	height: 100%;
+	width: 100%;
+	/*background: #299d56;*/
+    /*background: url('../img/background_7awli_zwin.png') no-repeat center center fixed;*/
+    background: url('../img/background_7awli_zwin.png') no-repeat left top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#wrapper {
+	width: 100%;
+	margin:0 auto;
+}
+#header, #main, #footer>div {
+	width: 1100px;
+	margin: 0 auto;
+}
+#header {
+	padding-top: 1em;
+}
+div#logo {
+	float: left;
+}
+ul#top-menu {
+	float: right;
+}
+ul#top-menu li {
+	display: inline-block;
+}
+ul#top-menu li a {
+	display: block;
+	background: #33a15e;
+	border-radius: 10px;
+	padding: 5px 15px;
+}
+div#main {
+	margin-top: 1em;
+    position: relative;
+}
+div#content {
+    width: 50%;
+}
+div.index-block {
+	margin: 1em 0;
+}
+div.index-block h2 {
+	font-size: 3em;
+    line-height: 2.55em;
+}
+div.index-block h2 {
+    line-height: 1.8em;
+}
+div#mobile {
+    width: 540px;
+    height: 290px;
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background: url('../img/smartphone_7awli.png') no-repeat left top;
+}
+#footer {
+	background: #299d56;
+	height: 6em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #2cb14e;
+}
+#footer>div {
+	line-height: 6em;
+}
+a.footer-button {
+	display: inline-block;
+	padding: 5px 10px;
+	background: #FFF;
+	-webkit-border-radius: 5px; 
+  	-moz-border-radius: 5px; 
+    border-radius: 5px;
+    line-height: 1em;
+}
