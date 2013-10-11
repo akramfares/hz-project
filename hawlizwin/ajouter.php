@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="css/jquery.fileupload.css">
 
     <script src="js/jquery.js"></script>
+    <style type="text/css">
+        ul, ol {
+            margin-bottom: 0px;
+        }
+    </style>
     <script>
             $(document).ready(function() {
  
