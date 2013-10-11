@@ -80,30 +80,24 @@
             <div id="main">
                 <div id="content">
                     <div class="index-block">
-                        <h2>Capturer</h2>
+                        <h2>Capturez</h2>
                         <p>
-                            is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <p>
-                            Lorem Ipsum has been.
+                            la photo de votre 7awli avec votre téléphone <br />
+                            ou votre appareil photo.
                         </p>
                     </div>
                     <div class="index-block">
-                        <h2>Partager</h2>
+                        <h2>Participez</h2>
                         <p>
-                            is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <p>
-                            Lorem Ipsum has been.
+                            au concours 7awlizwine, du 11 au 17 Octobre, pour <br />
+                            découvrir le plus beau 7awli.
                         </p>
                     </div>
                     <div class="index-block">
-                        <h2>Partager & Gagner</h2>
+                        <h2>Partagez & Gagnez</h2>
                         <p>
-                            is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <p>
-                            Lorem Ipsum has been.
+                            un bon d'achat de 1500 DHs grâce aux<br/>
+                            votes de vos amis
                         </p>
                     </div>
                 </div>
@@ -114,8 +108,8 @@
         <footer id="footer">
             <div>
                 <p>
-                    This is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.
-                    <a class="footer-button" href="#">Testing and co</a>
+                    Commencez dès maintenant par vous inscrire en ajoutant la photo de votre 7awli
+                    <a class="footer-button" href="#">Participer</a>
                 </p>
             </div>
         </footer>

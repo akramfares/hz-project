@@ -8,9 +8,9 @@
         
         <nav id="menu" class="nav">
 			<ul id="top-menu">
-			    <li><a href="index.php" style="color:white">Accueil</a></li>
-                <li><a href="ajouter.php" style="color:white">Ajouter votre 7awli</a></li>
-                <li><a href="list.php" style="color:white">Voter</a></li>
+			    <li><a href="index.php" class="active">Accueil</a></li>
+                <li><a href="ajouter.php">Participer</a></li>
+                <li><a href="list.php">Galerie</a></li>
 			</ul>
             <div class="clear"></div>
 		</nav>
