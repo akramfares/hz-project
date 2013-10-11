@@ -1,4 +1,6 @@
-<html>
+<?php include("src/utils.php"); ?>
+<?php include("fb-login.php"); ?>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title></title>
@@ -67,54 +69,96 @@
 </head>
 <body style="padding-top:0px;">
     <?php include("header.php"); ?>
+
     <div id="list-photo">
-    <fieldset>
-        <!-- The fileinput-button span is used to style the file input field as button -->
-        <span class="btn btn-success fileinput-button">
-            <i class="glyphicon glyphicon-plus"></i>
-            <span>Photo du 7awli</span>
-            <!-- The file input field used as target for the file upload widget -->
-            <input id="fileupload" type="file" name="files[]" multiple>
-        </span>
-        <br>
-        <br>
-        <!-- The global progress bar -->
-        <div id="progress" class="progress">
-            <div class="progress-bar progress-bar-success"></div>
-        </div>
-        <!-- The container for the uploaded files -->
-        <div id="files" class="files"></div>
+        <?php if ($user): 
+            $email = $user_profile["email"];
+            $sth = $dbh->prepare("SELECT * FROM users WHERE email ='$email'");
+            $sth->execute();
 
-    </fieldset>
+            /* Récupération de toutes les lignes d'un jeu de résultats */
+            $result = $sth->fetchAll();
+            if(count($result) == 0):
+        ?>
+        
+            <h1>Participer</h1>
+            <fieldset>
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Photo du 7awli</span>
+                    <!-- The file input field used as target for the file upload widget -->
+                    <input id="fileupload" type="file" name="files[]" multiple>
+                </span>
+                <br>
+                <br>
+                <!-- The global progress bar -->
+                <div id="progress" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <!-- The container for the uploaded files -->
+                <div id="files" class="files"></div>
 
-<form action="validform.php"
-    method="post">
-    <input type="hidden" name="photo" id="photo" /> 
-    <fieldset>
-        <label for="prix">Prix</label>
-        <input type="prix" id="prix" name="prix" class="form-text" style="width:10%;display: inline;" required/> DHs
-    </fieldset>
-    
-    <fieldset>
-        <label for="ville">Ville</label>
-        <select id="regions" name="regions">
+            </fieldset>
+
+        <form action="validform.php"
+            method="post">
+            <input type="hidden" name="photo" id="photo" /> 
+            <fieldset>
+                <label for="prix">Prix</label>
+                <input type="prix" id="prix" name="prix" class="form-text" style="width:10%;display: inline;" required/> DHs
+            </fieldset>
             
-        </select>
-        <select id="ville" name="ville">
-            
-        </select>
-    </fieldset>
+            <fieldset>
+                <label for="ville">Ville</label>
+                <select id="regions" name="regions">
+                    
+                </select>
+                <select id="ville" name="ville">
+                    
+                </select>
+            </fieldset>
 
-    <fieldset>
-        <label for="description">Description</label>
-        <textarea id="description" name="description" required></textarea>
-    </fieldset>
-    
-    <fieldset class="form-actions">
-        <input type="submit" value="Envoyer" />
-    </fieldset>
-</form> 
-</div>
+            <fieldset>
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+            </fieldset>
+            
+            <fieldset class="form-actions">
+                <input type="submit" value="Envoyer" />
+            </fieldset>
+        </form> 
+        
+        <?php else:
+            
+            echo '<ol class="thumb-grid group">';
+            foreach ($result as $user) {
+                $sth = $dbh->prepare("SELECT * FROM photos WHERE id ='".$user['id']."'");
+                $sth->execute();
+
+                /* Récupération de toutes les lignes d'un jeu de résultats */
+                $photos = $sth->fetchAll();
+                foreach ($photos as $photo) {
+                    ?>
+                    <li>
+                        <a href="#"><img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail" /></a>
+                        Par <b>Akram Fares</b>
+                    </li>
+                    <?php
+                }
+            }
+            echo '</ol>';
+         endif ?>
+
+
+        <?php else: ?>
+          <div>
+            <a href="<?php echo $loginUrl; ?>">Se connecter avec Facebook</a>
+          </div>
+
+    <?php endif ?>
+
+    </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
