@@ -41,13 +41,9 @@ audio:not([controls]) {
 }
 
 html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
 }
 
 a:focus {
@@ -284,27 +280,6 @@ table {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
-}
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html {
-  /*font-size: 62.5%;*/
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body {
-  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #333333;
-  background-color: #ffffff;*/
 }
 
 input,
@@ -551,18 +526,6 @@ h4 small,
   border-bottom: 1px solid #eeeeee;
 }
 
-ul,
-ol {
-  margin-top: 0;
-  /*margin-bottom: 10px;*/
-}
-
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-  margin-bottom: 0;
-}
 
 .list-unstyled {
   padding-left: 0;
