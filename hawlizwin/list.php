@@ -6,7 +6,9 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/style2.css" rel="stylesheet" type="text/css">
 	<link href="css/style1.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script src="js/jquery.js"></script>
+	<script type="text/javascript"  src="js/modal.js"></script>
 	<style type="text/css">
 		#top-menu a{
 			color:white;
@@ -27,14 +29,42 @@
 		    foreach ($result as $photo) {
 		    	?>
 				<li>
-					<a href="#"><img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail" /></a>
+					<a data-toggle="modal" href="#myModal" ><img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail" /></a>
 					Par <b>Akram Fares</b>
 				</li>
+		     
+			              <!-- Modal -->
+			  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title"> 7wala dial Akram Fares</h4>
+			        </div>
+			        <div class="modal-body">
+			           
+                        <img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail"  />
+
+			            
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default" data-dismiss="modal">Ferme</button>
+			         
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->	
+			           
+
 		    	<?php
 		    }
 		    echo '</ol>';
 
 		?>
-	</div>		
+	</div>	
+	
+  
+
+ 
 </body>
 </html>
