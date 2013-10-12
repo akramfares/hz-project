@@ -24,7 +24,7 @@ $active_galerie = false;
         <meta name="keywords" content="" />
 
     	<title>
-            7awli zwin
+            Bienvenue - 7awliZwin.com
         </title>
         
         <link rel="icon" href="" type="image/x-icon">
@@ -33,8 +33,12 @@ $active_galerie = false;
         <link rel="image_src" href="" />
         
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/style2.css"/>
         <link href="css/style1.css" rel="stylesheet" type="text/css">
+        <link href="css/style2.css" rel="stylesheet" type="text/css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap styles -->
+        <link rel="stylesheet" href="css/bootstrap.css">
         
         <link rel="canonical" href="">
 

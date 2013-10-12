@@ -6,8 +6,7 @@ $active_galerie = true;
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title></title>
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<title>Galerie des 7awlis - 7awliZwin.com</title>
 	<link href="css/style2.css" rel="stylesheet" type="text/css">
 	<link href="css/style1.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -20,7 +19,7 @@ $active_galerie = true;
 	</style>
 	<?php include_once("src/mixpanel.php") ?>  
 </head>
-<body style="padding-top:0px;">
+<body>
 	<?php include("header.php"); ?>
     <div id="list-photo">
     	<h1>7wala zwinine</h1>

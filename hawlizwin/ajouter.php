@@ -7,7 +7,7 @@ $active_galerie = false;
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Participer - 7awliZwin.com</title>
     <link href="css/style1.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet" type="text/css">
 
@@ -15,7 +15,6 @@ $active_galerie = false;
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Generic page styles -->
-    <link rel="stylesheet" href="css/style.css">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="css/jquery.fileupload.css">
 
@@ -76,7 +75,7 @@ $active_galerie = false;
        </script>
 <?php include_once("src/mixpanel.php") ?>  
 </head>
-<body style="padding-top:0px;">
+<body>
     <?php include("header.php"); ?>
 
     <div id="list-photo">
