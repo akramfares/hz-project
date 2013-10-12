@@ -14,7 +14,6 @@
                 
                 <li>
                     <a href="list.php" id="social"><img src="img/social_btn.png"></a>
-                    <li>test</li>
                 </li>
 			</ul>
             <div class="clear"></div>

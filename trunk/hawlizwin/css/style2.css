@@ -66,11 +66,12 @@ ul#top-menu li a#social {
 	left: 12px;
 	padding: 0px;
 	margin-left: 12px;
+	color:#95e3a5;
 }
 ul#top-menu li a {
 	display: block;
 	padding: 5px 15px;
-	color:#95e3a5;
+	color:#ddb852;
 }
 ul#top-menu li a:hover {
 	border-bottom: 3px solid #40c666;
@@ -95,6 +96,7 @@ div.index-block h2 {
 	font-size: 2.5em;
     line-height: 2.55em;
     color: #DBB852;
+    font-weight: 200;
 }
 div.index-block h2 {
     line-height: 1.8em;
@@ -127,11 +129,14 @@ a.footer-button {
 	display: inline-block;
 	padding: 11px 21px;
 	margin-left: 12px;
-	background: #FFF;
+	background: #ddb852;
 	-webkit-border-radius: 5px; 
   	-moz-border-radius: 5px; 
     border-radius: 5px;
     line-height: 1em;
-    color:#DBB852;
+    color:#FFF;
     font-weight: bold;
+}
+a.footer-button:hover{
+	text-decoration: none;
 }
