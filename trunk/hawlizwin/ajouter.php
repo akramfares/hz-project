@@ -1,4 +1,8 @@
-<?php include("src/utils.php"); ?>
+<?php include("src/utils.php"); 
+$active_accueil = false;
+$active_participer = true;
+$active_galerie = false;
+?>
 <?php include("fb-login.php"); ?>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
@@ -70,7 +74,7 @@
             });
  
        </script>
-
+<?php include_once("src/mixpanel.php") ?>  
 </head>
 <body style="padding-top:0px;">
     <?php include("header.php"); ?>
@@ -110,7 +114,7 @@
             method="post">
             <input type="hidden" name="photo" id="photo" /> 
             <fieldset>
-                <label for="prix">Prix</label>
+                <label for="prix">Bch7al had l'mbrouk ?</label>
                 <input type="prix" id="prix" name="prix" class="form-text" style="width:10%;display: inline;" required/> DHs
             </fieldset>
             
@@ -313,6 +317,8 @@ $(function () {
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
 </script>       
-                
+          
+<?php include_once("src/analytics.php") ?>  
+
 </body>
 </html>

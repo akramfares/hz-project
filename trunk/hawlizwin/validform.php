@@ -13,6 +13,9 @@
     print_r($user_profile);
 
     if($_POST){
+        ?>
+            <script type="text/javascript">mixpanel.track("Participation");</script>
+        <?php
 
         $nom = $user_profile["name"];
         $email = $user_profile["email"];

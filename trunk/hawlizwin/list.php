@@ -1,4 +1,8 @@
-<?php include("src/utils.php"); ?>
+<?php include("src/utils.php"); 
+$active_accueil = false;
+$active_participer = false;
+$active_galerie = true;
+?>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -14,6 +18,7 @@
 			color:white;
 		}
 	</style>
+	<?php include_once("src/mixpanel.php") ?>  
 </head>
 <body style="padding-top:0px;">
 	<?php include("header.php"); ?>
@@ -61,10 +66,7 @@
 		    echo '</ol>';
 
 		?>
-	</div>	
-	
-  
-
- 
+	</div>
+	<?php include_once("src/analytics.php") ?>	
 </body>
 </html>
