@@ -89,53 +89,61 @@ $active_galerie = false;
             if(count($result) == 0):
         ?>
         
-            <h1>Participer</h1>
-            <fieldset>
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>Photo du 7awli</span>
-                    <!-- The file input field used as target for the file upload widget -->
-                    <input id="fileupload" type="file" name="files[]" multiple>
-                </span>
-                <br>
-                <br>
-                <!-- The global progress bar -->
-                <div id="progress" class="progress">
-                    <div class="progress-bar progress-bar-success"></div>
-                </div>
-                <!-- The container for the uploaded files -->
-                <div id="files" class="files"></div>
+            <div style="width:100%; text-align:center; margin-top:28px; margin-bottom:23px;"><img src="img/etape2.png"></div>
+            <div style="width:100%; text-align:center; margin-bottom:23px;"><img src="img/separator.png"></div>
 
-            </fieldset>
+            <div class="row">
+              <div class="col-md-6" style="width:390px">
+                <div style="display:table; height:309px; overflow: hidden; width: 100%; background-color: white; border: solid 1px #E5E5E5; border-radius: 4px;"> 
+                    <div style="display:table-cell; vertical-align:middle; width:100%; margin:0 auto; text-align:center; padding-top:12px">
+                      <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Ajouter la photo</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="fileupload" type="file" name="files[]" multiple>
+                    </span>
+                    <br /><br />
+                    <!-- The container for the uploaded files -->
+                    <div id="files" class="files"></div>
+                   </div> 
+                </div> 
+                
+              </div>
+              <div class="col-md-6">
+                <div style="display:table; height:309px; overflow: hidden; width: 100%; "> 
+                    <div style="display:table-cell; vertical-align:middle; width:100%; margin:0 auto; padding-top:12px">
 
-        <form action="validform.php"
-            method="post">
-            <input type="hidden" name="photo" id="photo" /> 
-            <fieldset>
-                <label for="prix">Bch7al had l'mbrouk ?</label>
-                <input type="prix" id="prix" name="prix" class="form-text" style="width:10%;display: inline;" required/> DHs
-            </fieldset>
-            
-            <fieldset>
-                <label for="ville">Ville</label>
-                <select id="regions" name="regions">
+                <form action="validform.php"
+                    method="post">
+                    <input type="hidden" name="photo" id="photo" /> 
+                    <fieldset>
+                        <label for="prix">Bch7al had l'mbrouk ?</label>
+                        <input type="prix" id="prix" name="prix" class="form-control" placeholder="Prix..." style="width:28%;display: inline;" required/> DHs
+                    </fieldset>
                     
-                </select>
-                <select id="ville" name="ville">
+                    <fieldset>
+                        <label for="ville">Mnin Chritih ?</label>
+                        <select id="regions" name="regions" class="form-control" style="margin-right: 8px;
+width: 48%;display: inline;">
+                            
+                        </select>
+                        <select id="ville" name="ville" class="form-control" style="margin-right: 8px;
+width: 48%;display: inline;">
+                            
+                        </select>
+                    </fieldset>
                     
-                </select>
-            </fieldset>
+                    <fieldset style="text-align:right;">
+                        <input type="submit" value="C'est parti !" class="btn btn-success" style="margin-right: 10px;"/>
+                    </fieldset>
+                </form> 
+              </div>
+              </div>
+              </div>
+            </div>
 
-            <fieldset>
-                <label for="description">Description</label>
-                <textarea id="description" name="description" required></textarea>
-            </fieldset>
-            
-            <fieldset class="form-actions">
-                <input type="submit" value="Envoyer" />
-            </fieldset>
-        </form> 
+
+        
         
         <?php else:
             
@@ -286,15 +294,15 @@ $(function () {
         // send Blob objects via XHR requests:
         disableImageResize: /Android(?!.*Chrome)|Opera/
             .test(window.navigator.userAgent),
-        previewMaxWidth: 100,
-        previewMaxHeight: 100,
+        previewMaxWidth: 200,
+        previewMaxHeight: 200,
         previewCrop: true
     }).on('fileuploadadd', function (e, data) {
         if(uploads == 0){
             data.context = $('<div/>').appendTo('#files');
             $.each(data.files, function (index, file) {
                 var node = $('<p/>')
-                        .append($('<span/>').text(file.name));
+                        .append();
                 if (!index) {
                     node
                         .append('<br>')
@@ -347,11 +355,11 @@ $(function () {
     }).on('fileuploaddone', function (e, data) {
         $.each(data.result.files, function (index, file) {
             if (file.url) {
-                var link = $('<a>')
-                    .attr('target', '_blank')
-                    .prop('href', file.url);
-                $(data.context.children()[index])
-                    .wrap(link);
+                // var link = $('<a>')
+                //     .attr('target', '_blank')
+                //     .prop('href', file.url);
+                // $(data.context.children()[index])
+                //     .wrap(link);
                 $("#photo").val(file.url);
             } else if (file.error) {
                 var error = $('<span class="text-danger"/>').text(file.error);
