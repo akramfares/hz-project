@@ -1,4 +1,8 @@
-<?php include("src/utils.php"); ?>
+<?php include("src/utils.php"); 
+$active_accueil = true;
+$active_participer = false;
+$active_galerie = false;
+?>
 
 <!DOCTYPE html>
 
@@ -66,8 +70,11 @@
         <meta name="twitter:app:id:iphone" content="">
         <meta name="twitter:app:id:ipad" content="">
         <meta name="twitter:app:id:googleplay" content="">
+        <script type="text/javascript" src="js/jquery.js"></script>
 
         <style type="text/css">*{color:white;}</style>
+        <?php include_once("src/mixpanel.php") ?>  
+        <script type="text/javascript">mixpanel.track("Landing page view");</script>
     </head>
     <body>
         <noscript>
@@ -110,9 +117,11 @@
             <div>
                 <p>
                     Commencez dès maintenant par vous inscrire en ajoutant la photo de votre 7awli
-                    <a class="footer-button" href="#">Participer</a>
+                    <a class="footer-button participer" href="ajouter.php">Participer</a>
                 </p>
             </div>
         </footer>
+
+        <?php include_once("src/analytics.php") ?>  
     </body>
 </html>
