@@ -92,6 +92,7 @@ div.index-block {
 div.index-block h2 {
 	font-size: 2.5em;
     line-height: 2.55em;
+    color: #DBB852;
 }
 div.index-block h2 {
     line-height: 1.8em;
@@ -129,5 +130,6 @@ a.footer-button {
   	-moz-border-radius: 5px; 
     border-radius: 5px;
     line-height: 1em;
-    color:#38854c;
+    color:#DBB852;
+    font-weight: bold;
 }
