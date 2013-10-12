@@ -48,7 +48,7 @@ $active_galerie = true;
 			        </div>
 			        <div class="modal-body">
 			           
-                        <img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail"  />
+                        <img src="<?php echo $photo['url']; ?>" alt="thumbnail" style="width: 100%;" />
 
 			            
 			        </div>

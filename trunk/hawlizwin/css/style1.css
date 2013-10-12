@@ -5,9 +5,10 @@
 	background-color: white;
 	margin-top: 52px;
 	height: 100%;
-	border: 7px solid #33a15e;
+	border: 1px solid white;
 	padding: 16px;
 	margin-bottom: 37px;
+	opacity:0.9;
 }
 
 
