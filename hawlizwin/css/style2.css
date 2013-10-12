@@ -57,7 +57,14 @@ ul#top-menu {
 }
 ul#top-menu li {
 	display: inline-block;
-	margin: 0 12px 0 12px;
+	margin: 0 12px 0 0px;
+}
+#social {
+	border: 1px solid;
+	position: absolute;
+	top: 64px;
+	padding-bottom: 15px;
+	margin-left: 12px;
 }
 ul#top-menu li a {
 	display: block;
@@ -69,7 +76,7 @@ ul#top-menu li a:hover {
 	color:white;
 }
 ul#top-menu li a.active {
-	border-bottom: 2px solid #40c666;
+	border-bottom: 3px solid #40c666;
 	color:white;
 }
 div#main {
