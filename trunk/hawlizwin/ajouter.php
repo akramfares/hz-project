@@ -160,9 +160,64 @@ $active_galerie = false;
 
 
         <?php else: ?>
-          <div>
-            <a href="<?php echo $loginUrl; ?>">Se connecter avec Facebook</a>
+            <div id="connect">
+            <p>
+                Utilisez votre compte Facebook pour vous connecter en 1 clic ;)
+            </p>
+            <a href="<?php echo $loginUrl; ?>" class="fb-button-container-reg">
+                <div class="pluginSkinLight">
+                    <div class="pluginLoginButton pluginLoginButtonXlarge">
+                        <div>
+                            <div class="pluginFaviconButton pluginFaviconButtonXlarge" id="u4wmlh_1">
+                                <table class="uiGrid" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <i class="pluginFaviconButtonIcon img sp_login-button sx_login-button_xlarge"></i>
+                                                <i class="pluginFaviconButtonIconActive img sp_login-button sx_login-button_xlargea"></i>
+                                            </td>
+                                            <td>
+                                                <span class="pluginFaviconButtonBorder">
+                                                    <span class="pluginFaviconButtonText fwb">Se connecter avec Facebook</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </a>
           </div>
+
+        <div id="progress">
+            <div>
+                <p>
+                    Capturez votre "7awli" 
+                </p>
+                <div>
+                    <img src="img/camera.png"/>
+                </div>
+            </div>
+            <div>
+                <p>
+                    Partagez votre photo 
+                </p>
+                <div>
+                    <img src="img/mail.png"/>
+                </div>
+            </div>
+            <div>
+                <p>
+                    Et gagnez
+                </p>
+                <div>
+                    <img src="img/gift.png"/>
+                </div>
+            </div>
+        </div>
 
     <?php endif ?>
 
