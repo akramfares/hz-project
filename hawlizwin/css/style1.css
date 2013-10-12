@@ -10,8 +10,6 @@
 	margin-bottom: 37px;
 	opacity:0.9;
 }
-
-
 ol.thumb-grid{
 	margin-top: 20px;
 }
@@ -145,4 +143,64 @@ form input[type="submit"]:active {
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 		}
-	}				
+}
+
+/*Facebook connect */
+div#connect {
+    width: 100%;
+    text-align: center;
+}
+div#connect p:first-child {
+    margin: 2em 0;
+}
+a.fb-button-container-reg {
+    color: #FFF;
+    display: inline-block;
+    margin: 0 auto;
+}
+div.fb-button-container {
+}
+.pluginFaviconButton{display:inline-block;background-color:#5f78ab;color:#fff;cursor:pointer;vertical-align:top}
+.pluginFaviconButton:active{background-color:#4f6aa3}
+.pluginFaviconButtonIcon, .pluginFaviconButtonIconActive{vertical-align:top}
+.pluginFaviconButton:active .pluginFaviconButtonIcon, .pluginFaviconButton .pluginFaviconButtonIconActive{display:none}
+.pluginFaviconButton:active .pluginFaviconButtonIconActive{display:inline-block}
+.pluginFaviconButtonBorder{display:inline-block;border-top:1px solid #29447e;border-right:1px solid #29447e;border-bottom:1px solid #1a356e}
+.pluginFaviconButtonBorder:active{border-color:#34437d}
+.pluginFaviconButtonText{display:inline-block;border-top:1px solid #879ac0;white-space:nowrap}
+.pluginFaviconButton:active .pluginFaviconButtonText{border-top-color:#50609c}
+.pluginFaviconButtonXlarge .pluginFaviconButtonText{font-size:24px;line-height:30px;padding:3px 8px 3px;color: #FFF;}
+.uiGrid{border:0;border-collapse:collapse;border-spacing:0}
+.sp_login-button{background-image:url(../img/fb-icon.png);background-repeat:no-repeat;display:inline-block;height:18px;width:18px}
+.sx_login-button_xlarge{width:39px;height:39px;background-position:-0px -0px}
+.sx_login-button_xlargea{width:39px;height:39px;background-position:-0px -40px}
+
+/*Progress*/
+div#progress {
+    width: 100%;
+    text-align: center;
+    margin-top: 4em;
+}
+div#progress > div {
+    text-align: center;
+    width: 30%;
+    min-width: 250px;
+    display: inline-block;
+}
+div#progress > div p {
+    margin: 1em 0;
+}
+div#progress > div > div {
+    width: 200px;
+    height: 200px;
+    border-radius: 110px;
+    -moz-border-radius: 110px;
+    -webkit-border-radius: 110px;
+    background: #FFF;
+    display: inline-block;
+    border : 7px solid #33a15e;
+}
+div#progress > div > div  img{
+    display: inline-block;
+    margin-top: 40px;
+}
