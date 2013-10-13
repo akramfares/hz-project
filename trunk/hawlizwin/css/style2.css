@@ -87,7 +87,7 @@ div#main {
     position: relative;
 }
 div#content {
-    width: 50%;
+    max-width: 40%;
 }
 div.index-block {
 	margin: 1em 0;
@@ -107,12 +107,12 @@ div#mobile {
     display: block;
     position: absolute;
     top: 70px;
-    right: 30px;
+    right: -50px;
     background: url('../img/smartphone_7awli.png') no-repeat left top;
 }
 #footer {
 	background: #299d56;
-	height: 6em;
+	min-height: 6em;
     /*position: fixed;*/
     bottom: 0;
     width: 100%;
@@ -139,4 +139,22 @@ a.footer-button {
 }
 a.footer-button:hover{
 	text-decoration: none;
+}
+@media screen and (max-width: 959px) {
+    #footer>div {
+        line-height: 3em;
+    }
+    div#mobile {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    div#content {
+        max-width: 100%;
+    }
+}
+@media screen and (min-width: 1100px) {
+    div#mobile {
+        right: 15px;
+    }
 }
