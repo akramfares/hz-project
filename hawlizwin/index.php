@@ -93,22 +93,19 @@ $active_galerie = false;
                     <div class="index-block">
                         <h2>Capturez</h2>
                         <p>
-                            la photo de votre 7awli avec votre téléphone <br />
-                            ou votre appareil photo.
+                            la photo de votre 7awli avec votre téléphone ou votre appareil photo.
                         </p>
                     </div>
                     <div class="index-block">
                         <h2>Participez</h2>
                         <p>
-                            au concours 7awlizwine, du 11 au 17 Octobre, pour <br />
-                            découvrir le plus beau 7awli.
+                            au concours 7awlizwine, du 11 au 17 Octobre, pour découvrir le plus beau 7awli.
                         </p>
                     </div>
                     <div class="index-block">
                         <h2>Partagez & Gagnez</h2>
                         <p>
-                            un bon d'achat de 1500 DHs grâce aux<br/>
-                            votes de vos amis
+                            un bon d'achat de 1500 DHs grâce aux votes de vos amis.
                         </p>
                     </div>
                 </div>
