@@ -80,6 +80,7 @@ ol.thumb-grid li .infos-photo {
 }
 ol.thumb-grid li .infos-photo b{
 	font-family:"WeblySleek UI Semibold";
+	letter-spacing: -2px;
 }
 ol.thumb-grid li {
 	float: left;

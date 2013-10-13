@@ -10,7 +10,6 @@
 </head>
 <body>
 <?php
-    print_r($user_profile);
 
     if($_POST){
         ?>
@@ -54,11 +53,16 @@
         $stmt = $dbh->prepare("INSERT INTO  `photos` (`id` , `userid` , `url` , `prix` , `ville` , `description` , `vote` , `date` ) VALUES (NULL ,  '$userid',  '$photo',  '$prix',  '$ville',  NULL,  '', CURRENT_TIMESTAMP );"); 
 
         $stmt->execute();
-
-        
+        $stmt = $dbh->prepare("SELECT * FROM photos ORDER BY id DESC LIMIT 1");
+        $stmt->execute();
+        $photo = $stmt->fetch();
+        ?>
+            <meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/soon/participation.php?id=<?php echo $photo["id"]; ?>">
+        <?php
     }
 
 ?>
+
 				
 </body>
 </html>

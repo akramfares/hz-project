@@ -108,20 +108,20 @@ $active_galerie = true;
 						<?php 
 							$sth = $dbh->prepare("SELECT * FROM users WHERE id =". $photo['userid']);
 		    				$sth->execute();
-		    				$user = $sth->fetch();
-		    				echo $user["nom"];
+		    				$userp = $sth->fetch();
+		    				echo $userp["nom"];
 						?></b>
 
 							<?php 
-
-								$fql = 'SELECT url, share_count, like_count, comment_count, total_count
-							        FROM link_stat WHERE url="http://stackoverflow.com"';
-							$json = file_get_contents('https://api.facebook.com/method/fql.query?format=json&query=' . urlencode($fql));
-							$data = json_decode($json);
 							if ($user): 
 							?>
 							<div style="float:right; margin-top: -3px;" class="fb-like" data-href="http://7awlizwin.com/participation.php?id=<?php echo $photo['id'] ?>" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
-						<?php else: ?>
+						<?php else: 
+						$fql = 'SELECT url, share_count, like_count, comment_count, total_count
+							        FROM link_stat WHERE url="http://stackoverflow.com"';
+							$json = file_get_contents('https://api.facebook.com/method/fql.query?format=json&query=' . urlencode($fql));
+							$data = json_decode($json);
+						?>
 						<div style="float:right; margin-top: 0px; color:#c2c0c0">
 							<?php echo  $data[0]->like_count; ?>
 						</div>
@@ -135,7 +135,7 @@ $active_galerie = true;
 			      <div class="modal-content">
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			          <h4 class="modal-title"> 7awli de <?php echo $user["nom"]; ?></h4>
+			          <h4 class="modal-title"> 7awli de <?php echo $userp["nom"]; ?></h4>
 			        </div>
 			        <div class="modal-body">
 			           

@@ -15,7 +15,7 @@ if(isset($_GET['debut']) || isset($_GET['id'])) {
  
     // connexion à la base de données
     try {
-        $bdd = new PDO('mysql:host=localhost;dbname=hawlizwin', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=abdelgha_hawlizwin', 'abdelgha_pricyme', 'mamane12x');
     } catch(Exception $e) {
         exit('Impossible de se connecter à la base de données.');
     }
