@@ -29,7 +29,7 @@ $active_galerie = false;
     <meta property="og:title" content="7awli Zwin" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="<?php echo $photo["url"]; ?>" />
-    <meta property="og:url" content="http://7awlizwin.com/participation.php?id=<?php echo $photo["id"]; ?>" />
+    <meta property="og:url" content="<?php echo SITEURI; ?>/participation.php?id=<?php echo $photo["id"]; ?>" />
     <meta property="og:description" content="7awli Zwin de <?php echo $user["nom"]; ?>, Votez et partagez pour m'aider à gagner" />
 
     <!-- Bootstrap styles -->

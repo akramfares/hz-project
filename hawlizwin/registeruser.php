@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Refresh" content="0;url=http://localhost/Pricyme/hawlizwin/list.php">
+    <meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/soon/list.php">
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 

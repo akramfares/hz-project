@@ -32,6 +32,10 @@ $active_galerie = false;
                         alert("Vous n'avez pas ajouté de photo");
                         return false;
                     }
+                    if($("#prix").val() > 5000 || $("#prix").val() < 900) {
+                        alert("Veuillez saisir un prix correct");
+                        return false;
+                    }
                 });
  
                 // au début on récupère les regions
@@ -92,8 +96,8 @@ $active_galerie = false;
             $sth->execute();
 
             /* Récupération de toutes les lignes d'un jeu de résultats */
-            $result = $sth->fetchAll();
-            if(0 == 0):
+            $result = $sth->fetch();
+            if($sth->rowCount() == 0):
         ?>
         
             <div style="width:100%; text-align:center; margin-top:28px; margin-bottom:23px;"><img src="img/etape2.png"></div>
@@ -153,24 +157,14 @@ width: 48%;display: inline;">
         
         
         <?php else:
-            
-            echo '<ol class="thumb-grid group">';
-            foreach ($result as $user) {
-                $sth = $dbh->prepare("SELECT * FROM photos WHERE id ='".$user['id']."'");
-                $sth->execute();
 
-                /* Récupération de toutes les lignes d'un jeu de résultats */
-                $photos = $sth->fetchAll();
-                foreach ($photos as $photo) {
-                    ?>
-                    <li>
-                        <a href="#"><img src="<?php echo str_replace('files/', 'files/thumbnail/', $photo['url']) ; ?>" alt="thumbnail" /></a>
-                        Par <b>Akram Fares</b>
-                    </li>
-                    <?php
-                }
-            }
-            echo '</ol>';
+            $sth = $dbh->prepare("SELECT * FROM photos WHERE userid ='".$result['id']."'");
+                $sth->execute();
+                $photo = $sth->fetch();
+            ?>
+            Vous avez déjà participé, redirection ...
+<meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/soon/participation.php?id=<?php echo $photo["id"]; ?>">
+            <?php
          endif ?>
 
 
