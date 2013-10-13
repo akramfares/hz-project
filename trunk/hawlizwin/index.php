@@ -121,7 +121,7 @@ $active_galerie = false;
             <div>
                 <p>
                     Commencez dès maintenant par vous inscrire en ajoutant la photo de votre 7awli
-                    <a class="footer-button participer" href="ajouter.php">Participer</a>
+                    <a class="footer-button participer" href="ajouter.php"><img src="img/participer_btn.png"></a>
                 </p>
             </div>
         </footer>

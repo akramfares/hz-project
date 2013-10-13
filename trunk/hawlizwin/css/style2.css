@@ -29,7 +29,7 @@ body {
 	width: 100%;
 	/*background: #299d56;*/
     /*background: url('../img/background_7awli_zwin.png') no-repeat center center fixed;*/
-    background: url('../img/background_7awli_zwin.png') no-repeat left top fixed;
+    background: url('../img/background_7awli_zwin.jpg') no-repeat left top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -129,7 +129,7 @@ a.footer-button {
 	display: inline-block;
 	padding: 11px 21px;
 	margin-left: 12px;
-	background: #ddb852;
+	/*background: #ddb852;*/
 	-webkit-border-radius: 5px; 
   	-moz-border-radius: 5px; 
     border-radius: 5px;

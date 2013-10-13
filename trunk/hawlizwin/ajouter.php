@@ -26,6 +26,13 @@ $active_galerie = false;
     </style>
     <script>
             $(document).ready(function() {
+
+                $("#submit_form").click(function(){
+                    if($("#photo").val()=="") {
+                        alert("Vous n'avez pas ajouté de photo");
+                        return false;
+                    }
+                });
  
                 // au début on récupère les regions
                 $.ajax({
@@ -86,7 +93,7 @@ $active_galerie = false;
 
             /* Récupération de toutes les lignes d'un jeu de résultats */
             $result = $sth->fetchAll();
-            if(count($result) == 0):
+            if(0 == 0):
         ?>
         
             <div style="width:100%; text-align:center; margin-top:28px; margin-bottom:23px;"><img src="img/etape2.png"></div>
@@ -134,7 +141,7 @@ width: 48%;display: inline;">
                     </fieldset>
                     
                     <fieldset style="text-align:right;">
-                        <input type="submit" value="C'est parti !" class="btn btn-success" style="margin-right: 10px;"/>
+                        <input type="submit" id="submit_form" value="C'est parti !" class="btn btn-success" style="margin-right: 10px;"/>
                     </fieldset>
                 </form> 
               </div>

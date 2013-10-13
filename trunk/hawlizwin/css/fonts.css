@@ -1,3 +1,12 @@
+@font-face {font-family:"WeblySleek UI Semibold";
+src:url("../fonts/weblysleekuisb.eot?") format("eot"),
+    url("../fonts/weblysleekuisb.woff") format("woff"),
+    url("../fonts/weblysleekuisb.ttf") format("truetype"),
+    url("../fonts/weblysleekuisb.svg#WeblySleekUISemibold") format("svg");
+font-weight:normal;
+font-style:normal;
+}
+
 @font-face {
     font-family: 'museo_sans500';
     src: url('../fonts/museosans_500-webfont.eot');

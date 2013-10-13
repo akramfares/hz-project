@@ -47,7 +47,8 @@ if ($user) {
   $logoutUrl = $facebook->getLogoutUrl();
 } else {
   $loginUrl = $facebook->getLoginUrl(
-    array('scope' => 'email')
+    array('scope' => 'email',
+    'redirect_uri' => 'http://localhost/Pricyme/hawlizwin/registeruser.php')
   );
 }
 
