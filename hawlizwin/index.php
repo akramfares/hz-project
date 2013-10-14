@@ -40,6 +40,8 @@ $active_galerie = false;
         <meta property="og:description" content="A l'occasion de  Aid Aldha, Nous vous invitons à participer au concours 7awli Zwin qui se déroulera entre le 13 et le 20 octobre. " />
 
         <script type="text/javascript" src="js/jquery.js"></script>
+         <script type="text/javascript" src="js/tooltip.js"></script>
+           <script type="text/javascript" src="js/popover.js"></script>
 
         <style type="text/css">*{color:white;}</style>
         <?php include_once("src/mixpanel.php") ?>  
