@@ -3,28 +3,18 @@ $active_accueil = true;
 $active_participer = false;
 $active_galerie = false;
 ?>
-
-<!DOCTYPE html>
-
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
-
-<html class="no-js" lang="fr">
+<html lang="fr" xmlns:fb="http://www.facebook.com/2008/fbml">
     <head>
-    	<meta charset="utf-8">
-        <!-- This makes sure the latest version of IE is used in versions of IE that contain multiple rendering engines. Even if a site visitor is using IE8 or IE9, it's possible that they're not using the latest rendering engine their browser contains. To fix this, use: -->
-        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
         <meta name="viewport" content="width=device-width initial-scale=1.0">
 
-        <meta name="title" content="">
-        <meta name="description" content="">
+        <meta name="title" content="7awli Zwin">
+        <meta name="description" content="A l'occasion de  Aid Aldha, Nous vous invitons à participer au concours 7awli Zwin qui se déroulera entre le 13 et le 20 octobre. ">
         <meta name="keywords" content="" />
 
     	<title>
-            Bienvenue - 7awliZwin.com
+            7awli Zwin
         </title>
         
         <link rel="icon" href="" type="image/x-icon">
@@ -42,38 +32,13 @@ $active_galerie = false;
         
         <link rel="canonical" href="">
 
-
-    	<!-- IE Fix for HTML5 Tags -->
-    	<!--[if lt IE 9]>
-    		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    	<![endif]-->
-
         <!-- Facebook meta tags -->
-        <meta property="og:title" content="" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="">
-        <meta property="og:url" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:site_name" content="" />
-        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:title" content="7awli Zwin" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="http://7awlizwin.com/img/1_00677.jpg">
+        <meta property="og:url" content="http://7awlizwin.com" />
+        <meta property="og:description" content="A l'occasion de  Aid Aldha, Nous vous invitons à participer au concours 7awli Zwin qui se déroulera entre le 13 et le 20 octobre. " />
 
-        <!-- Twitter card - Mus validate after -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="">
-        <meta name="twitter:title" content="">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:creator" content="">
-        <meta name="twitter:image:src" content="">
-        <meta name="twitter:domain" content="">
-        <meta name="twitter:app:name:iphone" content="">
-        <meta name="twitter:app:name:ipad" content="">
-        <meta name="twitter:app:name:googleplay" content="">
-        <meta name="twitter:app:url:iphone" content="">
-        <meta name="twitter:app:url:ipad" content="">
-        <meta name="twitter:app:url:googleplay" content="">
-        <meta name="twitter:app:id:iphone" content="">
-        <meta name="twitter:app:id:ipad" content="">
-        <meta name="twitter:app:id:googleplay" content="">
         <script type="text/javascript" src="js/jquery.js"></script>
 
         <style type="text/css">*{color:white;}</style>
@@ -93,19 +58,22 @@ $active_galerie = false;
                     <div class="index-block">
                         <h2>Capturez</h2>
                         <p>
-                            la photo de votre 7awli avec votre téléphone ou votre appareil photo.
+                            la photo de votre 7awli avec votre téléphone <br />
+                            ou votre appareil photo.
                         </p>
                     </div>
                     <div class="index-block">
                         <h2>Participez</h2>
                         <p>
-                            au concours 7awlizwine, du 11 au 17 Octobre, pour découvrir le plus beau 7awli.
+                            au concours 7awlizwine, du 13 au 20 Octobre, pour <br />
+                            découvrir le plus beau 7awli.
                         </p>
                     </div>
                     <div class="index-block">
                         <h2>Partagez & Gagnez</h2>
                         <p>
-                            un bon d'achat de 1500 DHs grâce aux votes de vos amis.
+                            un bon d'achat de 1500 DHs grâce aux<br/>
+                            votes de vos amis
                         </p>
                     </div>
                 </div>

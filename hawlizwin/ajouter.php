@@ -85,6 +85,9 @@ $active_galerie = false;
  
        </script>
 <?php include_once("src/mixpanel.php") ?>  
+
+<a href="http://www.thefeedbackbutton.com/feedback/ebdc91b2604052" class="the-feedback-button">Une erreur ?</a>
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://cdn.thefeedbackbutton.com/assets/button/v2.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","the-feedback-button-js");</script>
 </head>
 <body>
     <?php include("header.php"); ?>
@@ -94,16 +97,20 @@ $active_galerie = false;
             $email = $user_profile["email"];
             $sth = $dbh->prepare("SELECT * FROM users WHERE email ='$email'");
             $sth->execute();
+            $result = $sth->fetch();
+            $userid = $result["id"];
+            $sth = $dbh->prepare("SELECT * FROM photos WHERE userid ='$userid'");
+            $sth->execute();
 
             /* Récupération de toutes les lignes d'un jeu de résultats */
-            $result = $sth->fetch();
+            
             if($sth->rowCount() == 0):
         ?>
         
             <div style="width:100%; text-align:center; margin-top:28px; margin-bottom:23px;"><img src="img/etape2.png"></div>
             <div style="width:100%; text-align:center; margin-bottom:23px;"><img src="img/separator.png"></div>
 
-            <div class="row">
+            <div class="row" style="margin-left: 10px;">
               <div class="col-md-6" style="width:390px">
                 <div style="display:table; height:309px; overflow: hidden; width: 100%; background-color: white; border: solid 1px #E5E5E5; border-radius: 4px;"> 
                     <div style="display:table-cell; vertical-align:middle; width:100%; margin:0 auto; text-align:center; padding-top:12px">
@@ -135,7 +142,7 @@ $active_galerie = false;
                     <fieldset>
                         <label for="ville">Mnin Chritih ?</label>
                         <select id="regions" name="regions" class="form-control" style="margin-right: 8px;
-width: 48%;display: inline;">
+width: 46%;display: inline;">
                             
                         </select>
                         <select id="ville" name="ville" class="form-control" style="margin-right: 8px;
@@ -148,6 +155,8 @@ width: 48%;display: inline;">
                         <input type="submit" id="submit_form" value="C'est parti !" class="btn btn-success" style="margin-right: 10px;"/>
                     </fieldset>
                 </form> 
+
+                <i>Note: Si vous rencontrez une erreur, vous pouvez la signaler avec le bouton collé à droite</i>
               </div>
               </div>
               </div>
@@ -163,7 +172,7 @@ width: 48%;display: inline;">
                 $photo = $sth->fetch();
             ?>
             Vous avez déjà participé, redirection ...
-<meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/soon/participation.php?id=<?php echo $photo["id"]; ?>">
+<meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/participation.php?id=<?php echo $photo["id"]; ?>">
             <?php
          endif ?>
 
@@ -173,6 +182,12 @@ width: 48%;display: inline;">
             <p>
                 Utilisez votre compte Facebook pour vous connecter en 1 clic ;)
             </p>
+            <?php
+                $loginUrl = $facebook->getLoginUrl(
+                    array('scope' => 'email',
+                    'redirect_uri' => 'http://7awlizwin.com/ajouter.php')
+                  );
+            ?>
             <a href="<?php echo $loginUrl; ?>" class="fb-button-container-reg">
                 <div class="pluginSkinLight">
                     <div class="pluginLoginButton pluginLoginButtonXlarge">
@@ -273,7 +288,7 @@ $(function () {
                     data = $this.data();
                 $this
                     .off('click')
-                    .text('Abort')
+                    .text('Chargement en cours...')
                     .on('click', function () {
                         $this.remove();
                         data.abort();
@@ -285,7 +300,7 @@ $(function () {
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
-        autoUpload: false,
+        autoUpload: true,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         maxFileSize: 5000000, // 5 MB
         limitMultiFileUploads:1,
@@ -344,7 +359,7 @@ $(function () {
         }
         if (index + 1 === data.files.length) {
             data.context.find('button')
-                .text('Charger')
+                .text('Continuer')
                 .prop('disabled', !!data.files.error);
         }
     }).on('fileuploadprogressall', function (e, data) {

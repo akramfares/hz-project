@@ -80,11 +80,12 @@ $active_galerie = true;
 			$page_amount = $page_amount-1;
 			$p = 0;
 			if(isset($_GET['p'])) $p = $_GET['p'];
-			$page = mysql_real_escape_string($p);
+			$page = $p;
 			if($page < "1"){
 				$page = "0";
 			}
 			$p_num = $items*$page;
+
 			//end paging code
 		    $sth = $dbh->prepare("SELECT * FROM photos ORDER BY id DESC LIMIT $p_num , $items");
 		    $sth->execute();
@@ -118,7 +119,7 @@ $active_galerie = true;
 							<div style="float:right; margin-top: -3px;" class="fb-like" data-href="http://7awlizwin.com/participation.php?id=<?php echo $photo['id'] ?>" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
 						<?php else: 
 						$fql = 'SELECT url, share_count, like_count, comment_count, total_count
-							        FROM link_stat WHERE url="http://stackoverflow.com"';
+							        FROM link_stat WHERE url="http://7awlizwin.com/participation.php?id='.$photo['id'].'"';
 							$json = file_get_contents('https://api.facebook.com/method/fql.query?format=json&query=' . urlencode($fql));
 							$data = json_decode($json);
 						?>
@@ -174,6 +175,7 @@ $active_galerie = true;
 							echo '">';
 							echo $counter+1;
 							echo "</a></li>";
+
 						}
 						if($page < $page_amount){
 							$next = $page+1;
