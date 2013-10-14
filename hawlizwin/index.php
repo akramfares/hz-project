@@ -29,7 +29,8 @@ $active_galerie = false;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap styles -->
         <link rel="stylesheet" href="css/bootstrap.css">
-        
+        <script src="js/jquery.js"></script>
+         <script type="text/javascript"  src="js/modal.js"></script>
         <link rel="canonical" href="">
 
         <!-- Facebook meta tags -->
@@ -79,7 +80,35 @@ $active_galerie = false;
                         </p>
                     </div>
                 </div>
-                <div id="mobile">&nbsp;</div>
+                <a data-toggle="modal" href="#myModal" > <div id="mobile">&nbsp;</div></a>
+				  <!-- Modal -->
+				  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						  <h2 class="modal-title">7awli Video</h2>
+						</div>
+						<div class="modal-body">
+						 <iframe class="youtube-player" type="text/html" width="560" height="420" src="http://www.youtube.com/embed/Fg-RqeEWhwc" allowfullscreen frameborder="0">
+						</iframe>
+						</div>
+						<div class="modal-footer">
+							<a  href="#" 
+							  onclick="
+								window.open(
+								  'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://7awlizwin.com/&p[images][0]=&p[title]=Partager&p[summary]=?u='+encodeURIComponent(location.href), 
+								  'facebook-share-dialog', 
+								  'width=626,height=436'); 
+								return false;">
+							 <button type="button" class="btn btn-primary">Partager</button>
+							</a>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+						</div>
+					  </div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				  </div><!-- /.modal -->
+				
                 <div class="clear"></div>
             </div>
             <div class="push"></div>
