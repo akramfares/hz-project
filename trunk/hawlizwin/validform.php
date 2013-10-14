@@ -57,7 +57,7 @@
         $stmt->execute();
         $photo = $stmt->fetch();
         ?>
-            <meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/soon/participation.php?id=<?php echo $photo["id"]; ?>">
+            <meta http-equiv="Refresh" content="0;url=http://7awlizwin.com/participation.php?id=<?php echo $photo["id"]; ?>">
         <?php
     }
 

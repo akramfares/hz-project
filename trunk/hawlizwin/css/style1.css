@@ -8,6 +8,7 @@
 	border: 1px solid white;
 	padding: 16px 11px 16px 11px;
 	margin-bottom: 37px;
+	min-height: 490px;
 }
 
 #list-photo h1{
@@ -80,7 +81,7 @@ ol.thumb-grid li .infos-photo {
 }
 ol.thumb-grid li .infos-photo b{
 	font-family:"WeblySleek UI Semibold";
-	letter-spacing: -2px;
+	letter-spacing: 0px;
 }
 ol.thumb-grid li {
 	float: left;

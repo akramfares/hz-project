@@ -21,7 +21,7 @@ $active_galerie = false;
     $photo = $stmt->fetch();
     $sth = $dbh->prepare("SELECT * FROM users WHERE id =". $photo['userid']);
     $sth->execute();
-    $user = $sth->fetch();
+    $userp = $sth->fetch();
 
     ?>
 
@@ -30,7 +30,7 @@ $active_galerie = false;
     <meta property="og:type" content="article" />
     <meta property="og:image" content="<?php echo $photo["url"]; ?>" />
     <meta property="og:url" content="<?php echo SITEURI; ?>/participation.php?id=<?php echo $photo["id"]; ?>" />
-    <meta property="og:description" content="7awli Zwin de <?php echo $user["nom"]; ?>, Votez et partagez pour m'aider à gagner" />
+    <meta property="og:description" content="7awli Zwin de <?php echo $userp["nom"]; ?>, Votez et partagez pour m'aider à gagner" />
 
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -60,7 +60,44 @@ $active_galerie = false;
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="list-photo">
+    <div id="list-photo" style="padding-bottom:30px; padding-left:20px">
+
+        <?php if (!$user): 
+            $loginUrl = $facebook->getLoginUrl(
+                array('scope' => 'email',
+                'redirect_uri' => 'http://7awlizwin.com/participation.php?id='.$photo["id"])
+              );
+        ?>
+            <div id="connect" style="margin-top:12px">
+            <a href="<?php echo $loginUrl; ?>" class="fb-button-container-reg">
+                <div class="pluginSkinLight">
+                    <div class="pluginLoginButton pluginLoginButtonXlarge">
+                        <div>
+                            <div class="pluginFaviconButton pluginFaviconButtonXlarge" id="u4wmlh_1">
+                                <table class="uiGrid" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <i class="pluginFaviconButtonIcon img sp_login-button sx_login-button_xlarge"></i>
+                                                <i class="pluginFaviconButtonIconActive img sp_login-button sx_login-button_xlargea"></i>
+                                            </td>
+                                            <td>
+                                                <span class="pluginFaviconButtonBorder">
+                                                    <span class="pluginFaviconButtonText fwb">Se connecter avec Facebook pour voter</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </a>
+          </div>
+      <?php endif; ?>
+
         
             <div style="width:100%; text-align:center; margin-top:28px; margin-bottom:23px;"><img src="img/etape3.png"></div>
             <div style="width:100%; text-align:center; margin-bottom:23px;"><img src="img/separator.png"></div>
@@ -70,7 +107,8 @@ $active_galerie = false;
                 <div style="display:table; height:309px; overflow: hidden; width: 100%; background-color: white; border: solid 1px #E5E5E5; border-radius: 4px;"> 
                     <div style="display:table-cell; vertical-align:middle; width:100%; margin:0 auto; text-align:center; ">
                       
-                        <img src="<?php echo $photo["url"]; ?>" style="width:100%; height:100%;">
+                        <img src="<?php echo $photo["url"]; ?>" style="max-width: 390px;
+max-height: 400px;">
                         
                    </div> 
                 </div> 
@@ -80,7 +118,7 @@ $active_galerie = false;
                 <div style="display:table; height:309px; overflow: hidden; width: 100%; "> 
                     <div style="display:table-cell; vertical-align:middle; width:100%; margin:0 auto; padding-top:12px">
                         <span style="color:#626262; font-size:20px;">Participation de <b style="color:#81b971; font-size:20px;"> </span>
-                        <?php echo $user["nom"]; ?></b>
+                        <?php echo $userp["nom"]; ?></b>
                         <p style="color:#c2c0c0; margin-top:12px;">Marché : <?php 
                             $sth = $dbh->prepare("SELECT * FROM ville WHERE id =". $photo['ville']);
                             $sth->execute();
@@ -91,7 +129,22 @@ $active_galerie = false;
                     <img src="img/separator.png">
                     <div class="row" style="margin-top:20px;">
                         <div class="col-md-4" style="text-align:center">
+                            
+
+                            <?php 
+                            if ($user): 
+                            ?>
                             <div class="fb-like" data-href="http://7awlizwin.com/participation.php?id=<?php echo $photo['id'] ?>" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="box_count" data-action="like" data-show-faces="true" data-send="false"></div>
+                        <?php else: 
+                        $fql = 'SELECT url, share_count, like_count, comment_count, total_count
+                                    FROM link_stat WHERE url="http://7awlizwin.com/participation.php?id='.$photo['id'].'"';
+                            $json = file_get_contents('https://api.facebook.com/method/fql.query?format=json&query=' . urlencode($fql));
+                            $data = json_decode($json);
+                        ?>
+                        <div style="margin-top: 0px; color:#c2c0c0">
+                            Nombre de votes : <?php echo  $data[0]->like_count; ?>
+                        </div>
+                        <?php endif; ?>
                         </div>
                         <div class="col-md-4" style="text-align:center">
                             <a data-toggle="modal" href="#myModal" class="btn btn-success fileinput-button" style="width:80%">

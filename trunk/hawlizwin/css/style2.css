@@ -47,6 +47,7 @@ body {
 #header {
 	padding-top: 1em;
 	border-bottom: 1px solid #95e3a5;
+	width: 79%;
 }
 div#logo {
 	float: left;
@@ -72,6 +73,7 @@ ul#top-menu li a {
 	display: block;
 	padding: 5px 15px;
 	color:#ddb852;
+	font-family: "museo_sans500";
 }
 ul#top-menu li a:hover {
 	border-bottom: 3px solid #40c666;

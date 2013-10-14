@@ -48,7 +48,7 @@ if ($user) {
 } else {
   $loginUrl = $facebook->getLoginUrl(
     array('scope' => 'email',
-    'redirect_uri' => 'http://7awlizwin.com/soon/registeruser.php')
+    'redirect_uri' => 'http://7awlizwin.com/registeruser.php')
   );
 }
 
